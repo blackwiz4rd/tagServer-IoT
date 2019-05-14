@@ -16,8 +16,8 @@ def new_tag(request):
 		tag_pass = User.objects.make_random_password(length=16, allowed_chars="ABCDEF0123456789")
 		print("tag_id %s tag_pass %s" % (tag_id, tag_pass))
 
-		tag = User.objects.create_user(username=tag_id, password=tag_pass)
 		try:
+			tag = User.objects.create_user(username=tag_id, password=tag_pass)
 			tag.save()
 			return JsonResponse({'status': 'success', 'description': 'saved tag', 'pass': tag_pass})
 		except:
