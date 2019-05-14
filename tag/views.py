@@ -17,8 +17,11 @@ def new_tag(request):
 		print("tag_id %s tag_pass %s" % (tag_id, tag_pass))
 
 		tag = User.objects.create_user(username=tag_id, password=tag_pass)
-		tag.save()
-		return JsonResponse({'status': 'success', 'description': 'saved tag', 'pass': tag_pass})
+		try:
+			tag.save()
+			return JsonResponse({'status': 'success', 'description': 'saved tag', 'pass': tag_pass})
+		except:
+			return JsonResponse({'status': 'error', 'description': 'user already exists'})
 
 	return JsonResponse({'status': 'error', 'description': 'not a POST method'})
 
