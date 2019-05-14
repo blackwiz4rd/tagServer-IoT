@@ -53,8 +53,8 @@ def get_validity(request):
 			server_date = timezone.localtime(timezone.now())
 			print("comparing tag date %s with server date %s" % (validate.date, server_date))
 			if server_date < validate.date:
-				return JsonResponse({'status': 'success'})
-			return JsonResponse({'status': 'error', 'description': 'tag expired since %s' % validate.date})
+				return JsonResponse({'status': 'success', 'description': 'valid until %s' % validate.date})
+			return JsonResponse({'status': 'error', 'description': 'expired since %s' % validate.date})
 
 		return JsonResponse({'status': 'error', 'description': 'wrong user or password'})
 
