@@ -25,7 +25,7 @@ SECRET_KEY = '=)a6*qa%!$+77_+&9c(*3jw)*8fe8^wjv88cvebdo8x22eo-xs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tagserveriot.herokuapp.com']
 
 
 # Application definition
